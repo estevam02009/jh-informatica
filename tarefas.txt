@@ -1,0 +1,17 @@
+Adicionar imagens reais
+
+Incluir ícones para os serviços
+
+Adicionar mais conteúdo na seção "Sobre Nós"
+
+Incluir depoimentos de clientes
+
+Adicionar mapa de localização
+
+Implementar um botão do WhatsApp fixo
+
+Adicionar animações simples
+
+Incluir SEO básico (meta tags)
+
+Adicionar um sistema de envio de e-mails para o formulário
