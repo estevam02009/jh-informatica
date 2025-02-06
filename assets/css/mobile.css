@@ -1,0 +1,147 @@
+/* Mobile First */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+/* Header */
+header {
+    background: #002244;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #002244;
+    padding: 1rem;
+    text-align: center;
+}
+
+.nav-links.active {
+    display: block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+.menu-toggle {
+    color: white;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 34, 68, 0.8), rgba(0, 34, 68, 0.8)),
+        url('mobile-bg.jpg') center/cover;
+    padding: 2rem 1rem;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Otimizações para Touch */
+button,
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+/* Media Queries para Telas Maiores */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        position: static;
+        gap: 1.5rem;
+        background: transparent;
+        padding: 0;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+    }
+
+    .hero {
+        background-image: url('desktop-bg.jpg');
+        min-height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+.skeleton {
+    background: #eee;
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.5) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton 1.5s infinite;
+}
+
+@keyframes skeleton {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
