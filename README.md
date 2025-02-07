@@ -1,2 +1,2 @@
 # jh-informatica
-Site da empres aJH Informática
+Site da empresa JH Informática 
