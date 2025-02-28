@@ -1,7 +1,41 @@
 'use client'
 import { motion } from 'framer-motion'
+import { FiMonitor, FiShield, FiDatabase, FiSettings, FiWifi, FiTool } from 'react-icons/fi'
 
 export default function Services() {
+  const services = [
+    {
+      title: "Reparo de Hardware",
+      description: "Reparo especializado para laptops, desktops e outros problemas de hardware de computador.",
+      icon: <FiMonitor className="w-8 h-8 mb-4 text-blue-600" />
+    },
+    {
+      title: "Remoção de vírus",
+      description: "Remoção completa de vírus e malware para manter seu computador seguro.",
+      icon: <FiShield className="w-8 h-8 mb-4 text-blue-600" />
+    },
+    {
+      title: "Recuperação de dados",
+      description: "Serviços profissionais de recuperação de dados para arquivos perdidos ou corrompidos.",
+      icon: <FiDatabase className="w-8 h-8 mb-4 text-blue-600" />
+    },
+    {
+      title: "Atualização do sistema",
+      description: "Atualizações de hardware e software para melhorar o desempenho do seu computador.",
+      icon: <FiSettings className="w-8 h-8 mb-4 text-blue-600" />
+    },
+    {
+      title: "Configuração de rede",
+      description: "Serviços profissionais de instalação e configuração de redes.",
+      icon: <FiWifi className="w-8 h-8 mb-4 text-blue-600" />
+    },
+    {
+      title: "Manutenção",
+      description: "Manutenção regular para manter seu computador funcionando sem problemas.",
+      icon: <FiTool className="w-8 h-8 mb-4 text-blue-600" />
+    }
+  ]
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,10 +81,11 @@ export default function Services() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
                 variants={cardVariants}
                 whileHover={{ scale: 1.03 }}
               >
+                {service.icon}
                 <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
                 <p className="mt-2 text-gray-500">{service.description}</p>
               </motion.div>
@@ -61,30 +96,3 @@ export default function Services() {
     </section>
   )
 }
-
-const services = [
-  {
-    title: "Reparo de Hardware",
-    description: "Reparo especializado para laptops, desktops e outros problemas de hardware de computador."
-  },
-  {
-    title: "Remoção de vírus",
-    description: "Remoção completa de vírus e malware para manter seu computador seguro."
-  },
-  {
-    title: "Recuperação de dados",
-    description: "Serviços profissionais de recuperação de dados para arquivos perdidos ou corrompidos."
-  },
-  {
-    title: "Atualização do sistema",
-    description: "Atualizações de hardware e software para melhorar o desempenho do seu computador."
-  },
-  {
-    title: "Configuração de rede",
-    description: "Serviços profissionais de instalação e configuração de redes."
-  },
-  {
-    title: "Manutenção",
-    description: "Manutenção regular para manter seu computador funcionando sem problemas."
-  }
-]
