@@ -9,10 +9,10 @@ export default function Contact() {
               <h3 className="text-xl font-bold text-gray-900">Informações de contato</h3>
               <div className="mt-4 space-y-4">
                 <p className="text-gray-500">
-                  <strong>Endereço:</strong> Rua Elizio Simões, 123 - Leandro Bezerra - Caraúbas - RN
+                  <strong>Endereço:</strong> Rua Elizio Fernandes, S/N - Leandro Bezerra - Caraúbas - RN
                 </p>
                 <p className="text-gray-500">
-                  <strong>Phone:</strong> (84) 99999-9999
+                  <strong>Phone:</strong> (84) 99899-3401
                 </p>
                 <p className="text-gray-500">
                   <strong>Email:</strong> info@jhinformatica.com

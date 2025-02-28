@@ -7,17 +7,17 @@ export default function Slideshow() {
 
     const slides = [
         {
-            image: '/slide1.jpg',
+            image: 'https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg',
             title: 'Serviços de Qualidade',
             description: 'Manutenção e reparo de computadores com excelência'
         },
         {
-            image: '/slide2.jpg',
+            image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg',
             title: 'Atendimento Profissional',
             description: 'Equipe especializada para melhor atender você'
         },
         {
-            image: '/slide3.jpg',
+            image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg',
             title: 'Soluções Completas',
             description: 'Do hardware ao software, cuidamos de tudo'
         }
