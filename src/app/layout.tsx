@@ -1,7 +1,7 @@
 
 import { Metadata } from "next";
 import "./globals.css";
-
+import { AuthProvider } from "./context/authcontext";
 
 export const metadata: Metadata = {
   title: "JH INformática - Software e Tecnologia",
@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,6 +1,12 @@
+'use client';
+
 import React from 'react';
-import { ShoppingCart, MessageCircle, Search } from 'lucide-react';
+import { ShoppingCart, MessageCircle, Search, LogIn, LogOut, Download } from 'lucide-react';
 import { getWhatsAppSupportUrl } from '../utils/whatsapp';
+import { useAuth } from '../context/authcontext';
+
+
+import Link from 'next/link';
 
 interface HeaderProps {
     cartItemsCount: number;
@@ -8,6 +14,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick }) => {
+    const { user, isAuthenticated, logout } = useAuth();
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,6 +32,11 @@ export const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick }) =
                         <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Serviços</a>
                         <a href="#support" className="text-gray-700 hover:text-blue-600 transition-colors">Suporte</a>
                         <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">Sobre Nós</a>
+                        {isAuthenticated && (
+                            <Link href="/downloads" className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                                <Download className="w-4 h-4 mr-1" /> Downloads
+                            </Link>
+                        )}
                     </nav>
 
                     {/* Actions */}
@@ -42,6 +54,25 @@ export const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick }) =
                         >
                             <MessageCircle className="w-5 h-5" />
                         </a>
+
+                        {isAuthenticated ? (
+                            <button
+                                onClick={logout}
+                                className="text-gray-700 hover:text-red-600 transition-colors flex items-center"
+                                title="Sair"
+                            >
+                                <LogOut className="w-5 h-5" />
+                            </button>
+                        ) : (
+                            <div className="flex space-x-3">
+                                {/* <Link href="/register" className="text-gray-700 hover:text-blue-600 transition-colors" title="Cadastrar">
+                                    <span className="text-sm">Cadastrar</span>
+                                </Link> */}
+                                <Link href="/login" className="text-gray-700 hover:text-blue-600 transition-colors" title="Entrar">
+                                    <LogIn className="w-5 h-5" />
+                                </Link>
+                            </div>
+                        )}
 
                         <button
                             onClick={onCartClick}
