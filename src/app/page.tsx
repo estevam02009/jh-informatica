@@ -1,9 +1,11 @@
-import { Header } from "@/app/components/Header";
+import { Footer } from "./components/Footer";
+import {Header}  from "./components/Header";
 
 export default function Home() {
   return (
     <div>
-        <Header cartItemsCount={0} onCartClick={() => {}} />
+        <Header />
+        <Footer />
     </div>
   );
 }
