@@ -36,10 +36,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // In a real app, you would validate credentials against a backend
     // For this demo, we'll check against our localStorage "database"
     const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find((u: {email: string, password: string}) => 
+    const user = users.find((u: { email: string, password: string }) =>
       u.email === email && u.password === password
     );
-    
+
     if (user) {
       // Don't include password in the user state
       const userWithoutPassword = {
@@ -47,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         name: user.name,
         email: user.email
       };
-      
+
       setUser(userWithoutPassword);
       localStorage.setItem('user', JSON.stringify(userWithoutPassword));
       return true;
@@ -61,31 +61,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const register = async (name: string, email: string, password: string): Promise<boolean> => {
-    // In a real app, you would send this data to a backend API
-    // For this demo, we'll just validate the input and store in localStorage
+    // Em um aplicativo real, você enviaria esses dados para uma API de backend
+    // Para esta demonstração, vamos apenas validar a entrada e armazená-la no localStorage
     if (password.length >= 6) {
-      // Check if email is already registered (in a real app, this would be done by the backend)
+      // Verifique se o e-mail já está registrado (em um aplicativo real, isso seria feito pelo backend)
       const users = JSON.parse(localStorage.getItem('users') || '[]');
-      const existingUser = users.find((u: {email: string}) => u.email === email);
-      
+      const existingUser = users.find((u: { email: string }) => u.email === email);
+
       if (existingUser) {
         return false; // Email already exists
       }
-      
+
       // Generate a unique ID (in a real app, this would be done by the backend)
       const id = Date.now().toString();
-      
+
       // Create new user
       const newUser = { id, name, email };
-      
+
       // Save to "database" (localStorage)
       users.push({ id, name, email, password });
       localStorage.setItem('users', JSON.stringify(users));
-      
+
       // Log the user in
       setUser(newUser);
       localStorage.setItem('user', JSON.stringify(newUser));
-      
+
       return true;
     }
     return false;
